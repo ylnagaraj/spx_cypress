@@ -2,8 +2,8 @@ Jenkinsfile
 pipeline{
     agent any
     parameters{
-        string (name: 'SPEC', defaultValue: "cypress/e2e/tests/**/**", description: "enter the spec folder path here")
-        string (name: 'BROWSER', Choices: ['chrome','edge','firefox'], description: "select a browser to run")
+        string(name: 'SPEC', defaultValue: "cypress/e2e/tests/**/**", description: "enter the spec folder path here")
+        choice(name: 'BROWSER', choices: ['chrome','edge','firefox'], description: "select a browser to run")
     }
     options{
         ansiColor('xterm')
