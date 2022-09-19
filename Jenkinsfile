@@ -1,34 +1,38 @@
-pipeline{
+pipeline {
+   agent any
 
-    agent any
+   tools {nodejs "Node16"}
 
-    parameters{
-        string(name: 'SPEC', defaultValue: "cypress/e2e/tests/**/**", description: "enter the spec folder path here")
-        choice(name: 'BROWSER', choices: ['chrome','edge','firefox'], description: "select a browser to run")
-    }
+   environment {
+       CHROME_BIN = '/bin/google-chrome'
+      
+   }
 
-    stages{
-        stage('Building'){
-            steps{
-                echo "Building the application"
-            }
-        }
-        stage('Testing'){
-            steps{
-                bat "npm i"
-                bat "npx cypress run --browser ${BROWSER} --spec ${SPEC}"
-            }
-        }
-        stage('Deploying'){
-            steps{
-                echo 'Deploy the application'
-            }
-        }
-    }
+   stages {
+       stage('Dependencies') {
+           steps {
+               sh 'npm i'
+           }
+       }
+       stage('e2e Tests') {
+         Parallel{
+             stage('Test 1') {
+                  steps {
+                sh 'npm run cypress:ci'
+                  }
+               }
+             
+             stage('Test 2') {
+                  steps {
+                sh 'npm run cypress2:ci'
+                  }
+               }
 
-    post{
-        always{
-            publishHTML([allowMissing: false, alwaysLinkToLastBuild: true, keepAll: true, reportDir: 'cypress/reports', reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: ''])
-        }
-    }
+       }
+       stage('Deploy') {
+           steps {
+               echo 'Deploying....'
+           }
+       }
+   }
 }
