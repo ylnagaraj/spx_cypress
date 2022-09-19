@@ -1,10 +1,12 @@
-Jenkinsfile
 pipeline{
+
     agent any
+
     parameters{
         string(name: 'SPEC', defaultValue: "cypress/e2e/tests/**/**", description: "enter the spec folder path here")
         choice(name: 'BROWSER', choices: ['chrome','edge','firefox'], description: "select a browser to run")
     }
+
     stages{
         stage('Building'){
             steps{
@@ -23,6 +25,7 @@ pipeline{
             }
         }
     }
+
     post{
         always{
             publishHTML([allowMissing: false, alwaysLinkToLastBuild: true, keepAll: true, reportDir: 'cypress/reports', reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: ''])
