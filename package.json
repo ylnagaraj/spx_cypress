@@ -1,0 +1,26 @@
+{
+  "name": "spx",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "cy:run": "npx cypress run",
+    "cy:open": "npx cypress open",
+	"install": "npm install",
+	"test": "node_modules\\.bin\\cypress run --config pageLoadTimeout=100000",
+	"runtests": "npm run test ",
+    "chromeRun": "npx cypress run --headed --browser chrome",
+    "firefoxRun": "npx cypress run --headed --browser firefox",
+    "mochasome": "cypress run --browser firefox --headed",
+    "spec": "cypress run --browser electron --headed --spec .\\cypress\\e2e\\tests\\spx.sanitySuite1.cy.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "cypress": "^10.7.0",
+    "cypress-iframe": "^1.0.1",
+    "cypress-mochawesome-reporter": "^3.2.2",
+    "typescript": "^4.8.2"
+  }
+}
