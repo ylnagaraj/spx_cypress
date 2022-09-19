@@ -5,7 +5,6 @@ pipeline {
 
    environment {
        CHROME_BIN = '/bin/google-chrome'
-      
    }
 
    stages {
@@ -28,11 +27,12 @@ pipeline {
                   }
                }
 
-       }
-       stage('Deploy') {
-           steps {
-               echo 'Deploying....'
            }
-       }
-   }
+           stage('Deploy') {
+               steps {
+                    echo 'Deploying....'
+                }
+            }
+        }
+    }
 }
