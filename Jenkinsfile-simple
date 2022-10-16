@@ -4,7 +4,7 @@ pipeline {
     //docker {
       //image 'cypress/base:10'
     //}
-  }
+  //}
 
   stages {
     stage('build and test') {
@@ -13,7 +13,7 @@ pipeline {
         // to record we need to set an environment variable
         // we can load the record key variable from credentials store
         // see https://jenkins.io/doc/book/using/using-credentials/
-        CYPRESS_RECORD_KEY = e3c9cd5f-5bb4-479a-b107-da77117d3cb6
+        CYPRESS_RECORD_KEY = "e3c9cd5f-5bb4-479a-b107-da77117d3cb6"
       }
 
       steps {
