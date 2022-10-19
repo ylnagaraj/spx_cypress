@@ -1,9 +1,9 @@
 pipeline {
   agent any 
     // this image provides everything needed to run Cypress
-    //docker {
-      //image 'cypress/base:10'
-    //}
+    docker {
+      image 'cypress/base:10'
+    }
   //}
 
   stages {
@@ -13,7 +13,7 @@ pipeline {
         // to record we need to set an environment variable
         // we can load the record key variable from credentials store
         // see https://jenkins.io/doc/book/using/using-credentials/
-        CYPRESS_RECORD_KEY = "e3c9cd5f-5bb4-479a-b107-da77117d3cb6"
+        CYPRESS_RECORD_KEY = "fb1d573c-1e33-44ae-993d-6f2be5e8ea96"
       }
 
       steps {
