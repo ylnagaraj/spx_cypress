@@ -13,11 +13,11 @@ pipeline {
                 bat 'npm i'
             }
         }
-        // stage('Build') {
-        //     steps {
-        //         bat 'npm run build'
-        //     }
-        // }
+        stage('Build') {
+            steps {
+                bat 'npm run build'
+            }
+        }
         stage('e2e Tests') {
             steps {
                 bat 'npm run spec'
