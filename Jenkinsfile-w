@@ -4,7 +4,7 @@ pipeline {
     tools {nodejs "node"}
 
     environment {
-        CHROME_BIN = '%ProgramFiles%\Google\Chrome\Application\chrome.exe'
+        CHROME_BIN = '%ProgramFiles%\\Google\\Chrome\\Application\\chrome.exe'
     }
 
     stages {
