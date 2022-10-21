@@ -7,17 +7,20 @@ pipeline {
         CHROME_BIN = '%ProgramFiles%\\Google\\Chrome\\Application\\chrome.exe'
     }
 
-    stages {
-        stage('Dependencies') {
-            steps {
-                bat 'npm i'
-            }
-        }
+stages {
+
         stage('Build') {
             steps {
                 bat 'npm run build'
             }
         }
+    
+        stage('Dependencies') {
+            steps {
+                bat 'npm i'
+            }
+        }
+        
         stage('e2e Tests') {
             steps {
                 bat 'npm run spec'
