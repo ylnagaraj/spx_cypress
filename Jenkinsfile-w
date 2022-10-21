@@ -1,0 +1,32 @@
+pipeline {
+    agent any
+
+    tools {nodejs "node"}
+
+    environment {
+        CHROME_BIN = '%ProgramFiles%\Google\Chrome\Application\chrome.exe'
+    }
+
+    stages {
+        stage('Dependencies') {
+            steps {
+                bat 'npm i'
+            }
+        }
+        // stage('Build') {
+        //     steps {
+        //         bat 'npm run build'
+        //     }
+        // }
+        stage('e2e Tests') {
+            steps {
+                bat 'npm run spec'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Deploying....'
+            }
+        }
+    }
+}
