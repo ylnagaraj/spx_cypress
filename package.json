@@ -10,7 +10,7 @@
 	"test": "node_modules\\.bin\\cypress run --config pageLoadTimeout=100000",
 	"runtests": "npm run test ",
     "chromeRun": "npx cypress run --headed --browser chrome",
-    "firefoxRun": "npx cypress run --headed --browser firefox",
+    "firefoxRun": "npx cypress run --browser firefox",
     "mochasome": "cypress run --browser firefox --headed",
     "spec": "cypress run --browser electron --headed --spec .\\cypress\\e2e\\tests\\spx.sanitySuite1.cy.ts"
   },
