@@ -1,6 +1,10 @@
 pipeline{
 
-    agent any
+    agent {
+		  docker {
+			image 'cypress/included:10.6.0'
+		}
+	}
 
     tools {nodejs "node16"}
 
