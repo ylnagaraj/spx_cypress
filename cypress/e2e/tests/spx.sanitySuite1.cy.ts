@@ -15,7 +15,7 @@ describe('Sanity Test Suite 1', () => {
         cy.logout()
     });
 
-    it('Add New App and an Ad Space', () => {
+    xit('Add New App and an Ad Space', () => {
 
         cy.clickHeaderMenuItem('Inventory')
 
