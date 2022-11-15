@@ -2,7 +2,7 @@ pipeline{
 
     agent {
 		  docker {
-			image 'cypress/included:10.6.0'
+			image 'cypress/browsers:node16.16.0-chrome106-ff99-edge'
 		}
 	}
 
